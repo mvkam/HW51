@@ -83,7 +83,7 @@ abstract class AbstractDAO <K, T> {
 //                            Field field = cls.getDeclaredField(columnName);
 //                            field.setAccessible(true);
 //
-//                            field.set(t, (Integer) rs.getObject(columnName));
+//                            field.set(t, rs.getObject(columnName));
 //                        }
 //
 //                        res.add(t);
