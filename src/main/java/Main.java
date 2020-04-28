@@ -92,17 +92,17 @@ public class Main {
                 }
             }
 
-            if (st.toString().equals(""))
-//            System.out.println(tmp);
+            List<Apartment> list1;
+            if (st.toString().equals("")) {
+                list1 = dao.getByParams(Apartment.class, "select * from Apartment;");
                 System.exit(0);
-
+            }
             st.delete(st.length() - 5, st.length());
 
             String params = st.toString() + ";";
 
-            List<Apartment> list1 = dao.getByParams(Apartment.class, params);
+            list1 = dao.getByParams(Apartment.class, params);
         } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+            ex.printStackTrace();        }
     }
 }
