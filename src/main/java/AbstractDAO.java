@@ -67,12 +67,13 @@ abstract class AbstractDAO <K, T> {
     }
 
     public List<T> getByParams(Class<T> cls, String params) {
+        if (!params.equals("select * from Apartment;"))
+            params = "SELECT * FROM " + table + " WHERE " + params;
         List<T> res = new ArrayList<>();
         try {
             try (Statement st = conn.createStatement()) {
-                try (ResultSet rs = st.executeQuery("SELECT * FROM " + table + " WHERE " + params)) {
+                try (ResultSet rs = st.executeQuery(params)) {
                     ResultSetMetaData md = rs.getMetaData();
-
 //                    while (rs.next()) {
 //                        T t = cls.newInstance();
 //
